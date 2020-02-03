@@ -8,6 +8,7 @@ connectDB();
 app.use(cors());
 //Init Middleware
 app.use(express.json({ extended: false }));
+app.use(express.urlencoded());
 
 app.get("/", (req, res) => res.send("API Running"));
 
