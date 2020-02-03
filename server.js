@@ -5,7 +5,7 @@ var cors = require("cors");
 require("dotenv").config();
 //Connect Database
 connectDB();
-app.use(cors({ origin: process.env.client }));
+app.use(cors());
 //Init Middleware
 app.use(express.json({ extended: false }));
 
