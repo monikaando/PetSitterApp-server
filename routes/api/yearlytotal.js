@@ -9,7 +9,7 @@ const Job = require("../../models/Job");
 router.get("/:year", async (req, res) => {
   var query = req.params.year;
   try {
-    let jobs = await Job.find({ startdate: { $regex: query } });
+    let jobs = await Job.find({ startdate: { $regex: query }, paid: true });
     res.json(jobs);
   } catch (err) {
     console.log(err.message);
