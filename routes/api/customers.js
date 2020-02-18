@@ -105,6 +105,9 @@ router.delete("/:id", auth, async (req, res) => {
     customer.pets.forEach(pet => {
       promises.push(Pet.findByIdAndDelete(pet._id));
     });
+    customer.jobs.forEach(job => {
+      promises.push(Job.findByIdAndDelete(job._id));
+    });
     Promise.all(promises);
     await Customer.findByIdAndDelete(req.params.id);
     res.status(200).send("Customer Deleted");
