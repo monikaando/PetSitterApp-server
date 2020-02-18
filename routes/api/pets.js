@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const Customer = require("../../models/Customer");
+const auth = require("../../middleware/auth");
 const Pet = require("../../models/Pet");
 const mongoose = require("mongoose");
 
 //@route        GET api/pets/:id
 //@description  retrieve customer list
-//@access       PUBLIC
+//@access       PRIVATE
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
   try {
     let pet = await Pet.findById(req.params.id);
     res.json(pet);
@@ -20,8 +21,8 @@ router.get("/:id", async (req, res) => {
 
 //@route        POST api/pets
 //@description  create pet
-//@access       PUBLIC
-router.post("/", async (req, res) => {
+//@access       PRIVATE
+router.post("/", auth, async (req, res) => {
   const { type, name, comments, customerid } = req.body;
   try {
     let pet = new Pet({
@@ -41,10 +42,12 @@ router.post("/", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
 //@route        UPDATE api/pets
 //@description  update a pet
-//@access       PUBLIC
-router.put("/:id", async (req, res) => {
+//@access       PRIVATE
+
+router.put("/:id", auth, async (req, res) => {
   const { type, name, comments } = req.body;
   try {
     await Pet.findByIdAndUpdate(
@@ -65,9 +68,9 @@ router.put("/:id", async (req, res) => {
 
 //@route        DELETE api/pets
 //@description  delete a pet
-//@access       PUBLIC
+//@access       PRIVATE
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
   try {
     let pet = await Pet.findById(req.params.id);
     console.log(pet.customerid);
