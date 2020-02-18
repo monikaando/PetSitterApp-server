@@ -1,4 +1,5 @@
 const express = require("express");
+const auth = require("../../middleware/auth");
 const router = express.Router();
 const Job = require("../../models/Job");
 
@@ -6,7 +7,7 @@ const Job = require("../../models/Job");
 //@description  retrieve totalsper job for that year
 //@access       PUBLIC
 
-router.get("/:year", async (req, res) => {
+router.get("/:year", auth, async (req, res) => {
   var query = req.params.year;
   try {
     let jobs = await Job.find({ startdate: { $regex: query }, paid: true });

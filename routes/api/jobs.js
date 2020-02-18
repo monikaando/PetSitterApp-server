@@ -1,16 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../../middleware/auth");
 const Customer = require("../../models/Customer");
 const Job = require("../../models/Job");
 const mongoose = require("mongoose");
 
 //@route        GET api/jobs
 //@description  retrieve all jobs
-//@access       PUBLIC
+//@access       PRIVATE
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
-    let jobs = await Job.find({}).populate("customer");
+    let jobs = await Job.find({ user: req.user.id }).populate("customer");
     res.json(jobs);
   } catch (err) {
     console.log(err.message);
@@ -20,9 +21,9 @@ router.get("/", async (req, res) => {
 
 //@route        GET api/jobs/:id
 //@description  single job
-//@access       PUBLIC
+//@access       PRIVATE
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
   try {
     let job = await Job.findById(req.params.id).populate("customer");
     res.json(job);
@@ -34,9 +35,9 @@ router.get("/:id", async (req, res) => {
 
 //@route        GET api/jobs/fromcustomer/:id
 //@description  single job
-//@access       PUBLIC
+//@access       PRIVATE
 
-router.get("/fromcustomer/:id", async (req, res) => {
+router.get("/fromcustomer/:id", auth, async (req, res) => {
   try {
     let jobs = await Job.find({ customer: req.params.id }).populate("customer");
     res.json(jobs);
@@ -48,9 +49,9 @@ router.get("/fromcustomer/:id", async (req, res) => {
 
 //@route        POST api/jobs/:id
 //@description  create job
-//@access       PUBLIC
+//@access       PRIVATE
 
-router.post("/:id", async (req, res) => {
+router.post("/:id", auth, async (req, res) => {
   var {
     startdate,
     enddate,
@@ -71,7 +72,8 @@ router.post("/:id", async (req, res) => {
       paid,
       archived,
       description,
-      customer
+      customer,
+      user: req.user.id
     });
     await job.save();
     await Customer.findByIdAndUpdate(req.params.id, {
@@ -85,10 +87,10 @@ router.post("/:id", async (req, res) => {
 });
 
 //@route        PUT api/jobs/:id
-//@description  update a pet
-//@access       PUBLIC
+//@description  update a job
+//@access       PRIVATE
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
   var {
     startdate,
     enddate,
@@ -121,9 +123,9 @@ router.put("/:id", async (req, res) => {
 
 //@route        DELETE api/jobs
 //@description  delete job
-//@access       PUBLIC
+//@access       PRIVATE
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
   try {
     let job = await Job.findById(req.params.id);
     await Customer.findByIdAndUpdate(
