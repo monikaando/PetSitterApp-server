@@ -16,6 +16,9 @@ const CustomerSchema = new mongoose.Schema({
   priceperday: {
     type: Number
   },
+  user: {
+    type: String
+  },
   pets: [{ type: ObjectId, ref: "pets" }],
   jobs: [{ type: ObjectId, ref: "jobs" }]
 });

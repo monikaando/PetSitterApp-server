@@ -12,6 +12,9 @@ const PetSchema = new mongoose.Schema({
   },
   customerid: {
     type: String
+  },
+  user: {
+    type: String
   }
 });
 module.exports = Pet = mongoose.model("pets", PetSchema);
