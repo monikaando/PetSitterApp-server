@@ -9,4 +9,5 @@ Application for managing a pet sitting business.
 * NodeJS
 * Bulma 
 
+You can check the application here: https://pet-sitter-app.netlify.com/
 Login: test@test.com | password: qwaszx12
