@@ -22,4 +22,40 @@ Login: test@test.com | password: qwaszx12
 
 Created by: Monika Swidzinska and Dominik Antunovic - two students of Ironhack Bootcamp in Amsterdam.
 
-Created by: 04.02.2020
+Created: 04.02.2020
+
+
+<hr>
+Print screens form the application:
+<br>
+<br>
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372553/PetSitterApp/_1.png" />
+</div>
+<hr>
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371959/PetSitterApp/2.png" />
+</div>
+<hr>
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372553/PetSitterApp/_3.png" />
+</div>
+<hr>
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/4.png" />
+</div>
+<hr>
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372553/PetSitterApp/_5.png" />
+</div>
+<hr>
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/6.png" />
+</div>
+<hr>
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/7.png" />
+</div>
+<hr>
+<div style="display: flex; justify-content: center">
+<img src="https://res.cloudinary.com/mokaweb/im
