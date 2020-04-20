@@ -3,7 +3,6 @@ Server part.
 
 The third and the final project during Ironhack bootcamp. 
 Application for managing a pet sitting business, includes: customers, calendar, jobs, income summary.
-
 <br><br><b>Our application is a winner of HackShow</b> - the contest for the best application from Web Dev Ironhack Bootcamps (full time and part time).
 
 Stack:
