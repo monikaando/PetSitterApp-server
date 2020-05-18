@@ -1,5 +1,7 @@
 PetSitterApp
 <br>Server part.
+<br><a href="https://github.com/mswidzinska/PetSittingApp-client">Client part</a>
+
 <br><b>Screenshots from the app below.</b>
 
 The third and the final project during Ironhack bootcamp. 
